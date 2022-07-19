@@ -36,4 +36,27 @@ class Hvac:
         self.cooling_setpoint = 74
         self.heating_setpoint = 70
 ```
-The reason the cooling setpoint is set to 74 and the heating setpoint is 70 is because that's what I read in an ASHRAE book.
+The reason the cooling setpoint is set to 74 and the heating setpoint is 70 is because that's what I read in an ASHRAE book in 2017. 
+
+Now, let's create a `main.py` file to put things together and see them run.
+
+```
+from hvac import Hvac, SystemMode
+from room import Room
+
+def main():
+    bms = Hvac()
+    bedroom = Room(45)
+    if bedroom.temp < 65:
+        bms.mode = SystemMode.HEATING
+    elif bedroom.temp > 75:
+        bms.mode = SystemMode.COOLING
+
+    print(f'The room is currently at {bedroom.temp} so the machine will be put into {bms.mode}')
+
+if __name__ == '__main__':
+    main()
+```
+
+We import the classes from hvac and room. Create an HVAC object (as bms - which stands for Building Management System). Initially, it is off, with the cooling and heating setpoints initialized "from the factory." We then Room object with the initial temperature of 45 degrees. We change the mode of the machine based on the room temperature. Later on we will move this logic into one of the classes.
+
