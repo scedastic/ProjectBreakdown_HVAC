@@ -1,9 +1,35 @@
 # ProjectBreakdown_HVAC
 
-### An attempt to describe work breakdown using a situation of an HVAC system regulating a "space."
+## Enhance the HVAC
 
-### Prerequisite:
-- Basic programming knowledge.
-- Object Oriented Programming concepts.
-
-We will start off with the following situation. We have a "space" which for now we will assume is a room. We would like to control the temperature of this room. For that we have a machine that can heat it up or cool it down to the desired temperature. 
+Right now in our little world we have a Room, which is the space whose temperature we want to control and HVAC which is the machine we use to control it. A real HVAC system takes in air from the controlled space, heats or cools it and puts it back. In order to do that, we need a fan to pull in the air and force it back out. We will also need a cooler -- for now it will be a cooling coil, and a heater -- which will be a heating coil.
+Let's create a new file `fans.py` with the following:
+```
+class Fan:
+    def __init__(self):
+        self.status = "Off"
+```
+Let's create a new file `coolers.py` with the following:
+```
+class CoolingCoil:
+    def __init__(self):
+        self.status = "Off"
+```
+Let's create a new file `heaters.py` with the following:
+```
+class HeatingCoil:
+    def __init__(self):
+        self.status = "Off"
+```
+Now we have to bring these new items into `hvac.py` At the top of the file add
+```
+from fans import Fan
+from coolers import CoolingCoil
+from heaters import HeatingCoil
+```
+Inside the `__init__` method add the following between `self.mode` and declaration of the setpoints
+```
+self.fan = Fan()
+self.cooler = CoolingCoil()
+self.heater = HeatingCoil()
+```
