@@ -15,6 +15,25 @@ We will start off with the following situation. We have a "space" which for now 
 
 Set up your project environment to your liking.
 
+Speaking of environments, create a virtual environment (and activate it). 
+For Linux:
+```
+>python -m venv env
+>source env/bin/activate
+```
+For Windows: 
+Open a shell
+```
+>python -m venv env
+>env/scripts/activate
+```
+
+To deactivate (Linux and Windows):
+```
+>deactivate
+```
+
+
 Create `room.py` with the following code:
 ```
 class Room:
