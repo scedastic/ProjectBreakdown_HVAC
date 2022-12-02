@@ -33,3 +33,6 @@ self.fan = Fan()
 self.cooler = CoolingCoil()
 self.heater = HeatingCoil()
 ```
+## Testing
+
+At this point it is important start testing our application. Specifically, we want to make testing easy to create and run. We need to create tests that are meaningful. There are different testing frameworks available for python. Here, we will be using pytest. First, we need to include it in our environment. At the command line, run `pip install pytest`.
